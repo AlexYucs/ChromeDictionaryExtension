@@ -34,7 +34,8 @@ function searchText() {
 	chrome.tabs.create({ url: newURL });
 }
 
-
+%20 for spaces
+http://www.dictionaryapi.com/api/v1/references/learners/xml/STRING?key=[YOUR KEY GOES HERE]
 
 
 
