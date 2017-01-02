@@ -44,9 +44,7 @@ var def = xml.getElementsByTagName("def");
 for(var i = 0; i < def.length; i++) {
     var d = def[i];
     var singledef = d.getElementsByTagName("dt");
-    for(var j = 0; j < singledef.length; j++) {
-        fin_def = fin_def +"\n"+singledef[j];
-    }
+    singledef[0];
 }
 
 
