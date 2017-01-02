@@ -1,8 +1,8 @@
 chrome.runtime.onInstalled.addListener(startListening);
 chrome.runtime.onMessage.addListener(messageListener);
 chrome.contextMenus.onClicked.addListener(contextMenuListener);
-var word = '';
-
+var word = "";
+var fin_def = "";
 function startListening() {
   reviseCM();
 }
@@ -35,10 +35,19 @@ function searchText() {
 }
 
 %20 for spaces
-http://www.dictionaryapi.com/api/v1/references/learners/xml/STRING?key=[YOUR KEY GOES HERE]
-
-
-
+var url_req = "http://www.dictionaryapi.com/api/v1/references/learners/xml/STRING?key=[YOUR KEY GOES HERE]";
+var request = new XMLHttpRequest();
+request.open("GET", url_req);
+request.send();
+var resp = request.responseXML;
+var def = xml.getElementsByTagName("def");
+for(var i = 0; i < def.length; i++) {
+    var d = def[i];
+    var singledef = d.getElementsByTagName("dt");
+    for(var j = 0; j < singledef.length; j++) {
+        fin_def = fin_def +"\n"+singledef[j];
+    }
+}
 
 
 
