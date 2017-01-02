@@ -35,7 +35,7 @@ function searchText() {
 }
 
 %20 for spaces
-var url_req = "http://www.dictionaryapi.com/api/v1/references/learners/xml/STRING?key=[YOUR KEY GOES HERE]";
+var url_req = "http://www.dictionaryapi.com/api/v1/references/learners/xml/"+word+"?key=[YOUR KEY GOES HERE]";
 var request = new XMLHttpRequest();
 request.open("GET", url_req);
 request.send();
