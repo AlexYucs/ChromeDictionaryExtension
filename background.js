@@ -40,8 +40,11 @@ var request = new XMLHttpRequest();
 request.open("GET", url_req);
 request.send();
 var resp = request.responseXML;
-var def = xml.getElementsByTagName("def");
-for(var i = 0; i < def.length; i++) {
+var entries = resp.getElementsByTagName("entry id");
+
+for(var i = 0; i < entries.length; i++) {
+    if( entries[i])
+	
     var d = def[i];
     var singledef = d.getElementsByTagName("dt");
     singledef[0];
