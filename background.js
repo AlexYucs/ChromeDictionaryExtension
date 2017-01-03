@@ -42,10 +42,10 @@ function searchText() {
 			console.log(request.responseText);
 			chrome.tabs.create({ url: request.responseText});
 		} else if (request.readyState == 4 && request.status != 200) {
-			console.log('content', "not found");
+			console.log("not found");
 			chrome.tabs.create({ url: "wrong" });
 		} else {
-			console.log('content', "loading");
+			console.log("loading");
 			chrome.tabs.create({ url: "loading" });
 		}
     	}
