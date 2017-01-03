@@ -1,8 +1,8 @@
 chrome.runtime.onInstalled.addListener(startListening);
 chrome.runtime.onMessage.addListener(messageListener);
 chrome.contextMenus.onClicked.addListener(contextMenuListener);
-var word = "";
-var fin_def = "";
+var word = '';
+
 function startListening() {
   reviseCM();
 }
@@ -12,18 +12,18 @@ function messageListener(request) {
     word = request.selection;
   }
   else{
-	  reviseCM();
+	reviseCM();
   }
 }
 
 function contextMenuListener(info) {
-  searchText();
+    searchText();
 }
 
 function reviseCM() {
   chrome.contextMenus.removeAll();
   chrome.contextMenus.create({
-	  'id':         'alexyucode',
+	'id':         'alexyucode',
     'title':      'Search Selected Text...',
     'contexts':   ['selection']
   });
@@ -35,21 +35,45 @@ function searchText() {
 	request = new XMLHttpRequest();
     
     
-    	request.open("GET", "http://www.dictionaryapi.com/api/v1/references/learners/xml/cat?key=[key here]", true);
-   	request.send();
-   	request.onreadystatechange = function() {
-		if (request.readyState == 4 && request.status == 200) {
-			console.log(request.responseText);
-			chrome.tabs.create({ url: request.responseText});
-		} else if (request.readyState == 4 && request.status != 200) {
-			console.log("not found");
-			chrome.tabs.create({ url: "wrong" });
-		} else {
-			console.log("loading");
-			chrome.tabs.create({ url: "loading" });
-		}
-    	}
+    request.open("GET", "http://www.dictionaryapi.com/api/v1/references/learners/xml/"+word+"?key=[key here]", true);
+    request.send();
+    request.onreadystatechange = function() {
+      if (request.readyState == 4 && request.status == 200) {
+        //console.log(request.responseXML);
+		var returned_xml = request.responseText;
+		var start = returned_xml.indexOf(":");   //"dt>:");
+		//var textin = start.toString()+" kk";
+		var end = returned_xml.indexOf("<wsgram");
+		var fin_string = returned_xml.slice(start, end);
+	
+		chrome.tabs.create({ url: typeof(returned_xml)});
+		chrome.tabs.create({ url: fin_string});
+		//chrome.tabs.create({ url: request.responseText});
+		//chrome.tabs.create({ url: textin});
+		
+		
+      } else if (request.readyState == 4 && request.status != 200) {
+        console.log("not found");
+		chrome.tabs.create({ url: "wrong" });
+      } else {
+		console.log("not found");
+        chrome.tabs.create({ url: "loading" });
+      }
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 //%20 for spaces
 
