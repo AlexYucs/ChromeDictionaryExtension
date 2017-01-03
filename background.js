@@ -43,11 +43,11 @@ var resp = request.responseXML;
 var entries = resp.getElementsByTagName("entry id");
 
 for(var i = 0; i < entries.length; i++) {
-    if( entries[i])
-	
-    var d = def[i];
-    var singledef = d.getElementsByTagName("dt");
-    singledef[0];
+	if( entries[i]["entry id"] == word){
+		var singledef = entries[i].getElementsByTagName("def");
+		var singledef2 = singledef.getElementsByTagName("dt");
+		fin_def = singledef2[0];
+	}
 }
 
 
