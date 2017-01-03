@@ -35,7 +35,7 @@ function searchText() {
     request = new XMLHttpRequest();
     
     
-    request.open("GET", "http://www.dictionaryapi.com/api/v1/references/learners/xml/"+word+"?key=eea397d7-4759-4e64-a0de-99f1efbaa6ab", true);
+    request.open("GET", "http://www.dictionaryapi.com/api/v1/references/learners/xml/"+word+"?key=[key ss]", true);
     request.send();
     request.onreadystatechange = function() {
       if (request.readyState == 4 && request.status == 200) {
