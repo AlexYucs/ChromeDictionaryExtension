@@ -32,21 +32,23 @@ function reviseCM() {
 function searchText() {	
 	//var newURL = "https://www.merriam-webster.com/dictionary/"+word;
 	//chrome.tabs.create({ url: newURL });
-	
-	var url_req = "http://www.dictionaryapi.com/api/v1/references/learners/xml/"+word+"?key=[YOUR KEY GOES HERE]";
-	var request = new XMLHttpRequest();
-	request.open("GET", url_req);
-	request.send();
-	var resp = request.responseXML;
-	var entries = resp.getElementsByTagName("entry id");
-	for(var i = 0; i < entries.length; i++) {
-		if( entries[i]["entry id"] == word){
-			var singledef = entries[i].getElementsByTagName("def");
-			var singledef2 = singledef.getElementsByTagName("dt");
-			fin_def = singledef2[0];
+	request = new XMLHttpRequest();
+    
+    
+    	request.open("GET", "http://www.dictionaryapi.com/api/v1/references/learners/xml/cat?key=[key here]", true);
+   	request.send();
+   	request.onreadystatechange = function() {
+		if (request.readyState == 4 && request.status == 200) {
+			console.log(request.responseText);
+			chrome.tabs.create({ url: request.responseText});
+		} else if (request.readyState == 4 && request.status != 200) {
+			console.log('content', "not found");
+			chrome.tabs.create({ url: "wrong" });
+		} else {
+			console.log('content', "loading");
+			chrome.tabs.create({ url: "loading" });
 		}
-	}
-	chrome.tabs.create({ url: fin_def });
+    	}
 }
 
 //%20 for spaces
