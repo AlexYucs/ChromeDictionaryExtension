@@ -1,5 +1,6 @@
 # Chrome Dictionary Extension
 A google chrome extension for searching words. 
 
-~~Just highlight, right click, and search!~~
-Working on definitions while hovering highlighted text.
+Just highlight a word and hover over it. 
+
+Then a definition text box will pop up.
