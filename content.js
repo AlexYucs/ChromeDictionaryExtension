@@ -37,7 +37,7 @@ function searchText(X,Y,word) {
 
 			//parse xml returned
 			var returned_xml = request.responseText;		
-			var front = returned_xml.substring(returned_xml.indexOf(":")+1);
+			var front = returned_xml.substring(returned_xml.indexOf("<dt>")+5);
 			var fin_string = front.substring(0, front.indexOf("<"));
 
 
