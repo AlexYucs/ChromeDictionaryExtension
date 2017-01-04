@@ -29,7 +29,7 @@ function renderBubble(mouseX, mouseY, selection) {
 function searchText(X,Y,word) {
     	request = new XMLHttpRequest();
     
-    
+    	//Send XML request to Merriam Webster API
     	request.open("GET", "http://www.dictionaryapi.com/api/v1/references/learners/xml/"+word+"?key=[API KEY]", true);
     	request.send();
     	request.onreadystatechange = function() {
