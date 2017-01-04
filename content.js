@@ -26,9 +26,7 @@ function renderBubble(mouseX, mouseY, selection) {
 }
 
 
-function searchText(X,Y,word) {	
-    	//var newURL = "https://www.merriam-webster.com/dictionary/"+word;
-    	//chrome.tabs.create({ url: newURL });
+function searchText(X,Y,word) {
     	request = new XMLHttpRequest();
     
     
