@@ -7,7 +7,7 @@ document.body.appendChild(bubbleDOM);
 document.addEventListener('mouseup', function (e) {
 	var selection = window.getSelection().toString();
   	if (selection.length > 0) {
-		searchText(e.clientX, e.clientY, selection);
+		searchText(e.pageX, e.pageY, selection);
   	}
 }, false);
 
