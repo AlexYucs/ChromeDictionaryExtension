@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Word Bank",
-  "description": "This will define words in hovering text boxes",
-  "version": "2.0",
+  "description": "This extension defines words using Meriam Webster API. Just highlight and hover.",
+  "version": "2.1",
 
   "content_scripts": [
     {
