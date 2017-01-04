@@ -2,24 +2,24 @@
   "manifest_version": 2,
 
   "name": "Word Bank",
-  "description": "This will define words in tabs",
-  "version": "1.2",
+  "description": "This will define words in hovering text boxes",
+  "version": "2.0",
 
   "content_scripts": [
-   {
-     "matches": ["<all_urls>"],
-     "js": ["content.js"]
-   }
- ],
- 
- "background": {
-    "scripts": ["background.js"],
-	"persistent": false
-  },
+    {
+      "matches": ["http://*/*"],
+      "css": ["main.css"],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+	],
+
   
  "permissions": [
     "contextMenus",
-    "tabs"
+	"tabs",
+	"http://www.dictionaryapi.com/"
 	
  ]
  
