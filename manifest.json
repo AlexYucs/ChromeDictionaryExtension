@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Word Bank",
-  "description": "This extension defines words using Meriam Webster API. Just highlight and hover.",
+  "description": "This extension defines words using Merriam Webster API. Just highlight and hover.",
   "version": "2.1",
 
   "content_scripts": [
