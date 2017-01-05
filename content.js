@@ -39,9 +39,9 @@ function searchText(X,Y,word) {
 			var returned_xml = request.responseText;		
 			var front = returned_xml.substring(returned_xml.indexOf("<dt>")+5);
 			var fin_string = front.substring(0, front.indexOf("<"));
+			var fin_string2 =  fin_string.substring(fin_string.indexOf(">")+1);
 
-
-			renderBubble(X, Y, fin_string);
+			renderBubble(X, Y, fin_string2);
 
 
 		} else if (request.readyState == 4 && request.status != 200) {
